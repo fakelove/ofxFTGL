@@ -6,7 +6,7 @@ string alignment;
 //--------------------------------------------------------------
 void testApp::setup()
 {	
-	ofSetFrameRate(30);
+	ofSetFrameRate(60);
 	ofSetVerticalSync(true);
     
     // Layout will wrap your text depending on the line length you set,

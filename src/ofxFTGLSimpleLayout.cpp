@@ -33,6 +33,21 @@ bool ofxFTGLSimpleLayout::loadFont(string filename, float fontsize, float depth,
     return false;
 }
 
+bool ofxFTGLSimpleLayout::loadCachedFont(string filename, float fontsize, float depth, bool bUsePolygons)
+{
+
+    if( ofxFTGLFont* tempFont = ofxAssetManager::getInstance()->getFont( filename, fontsize)){
+        layout = new FTSimpleLayout();
+        layout->SetFont(tempFont->font);
+        
+        return true;
+    }
+    
+    return false;
+}
+
+
+
 float ofxFTGLSimpleLayout::getLineLength() const
 {
 	return layout->GetLineLength();
@@ -69,7 +84,7 @@ ofRectangle ofxFTGLSimpleLayout::getStringBoundingBox(string s, float x, float y
     	FTBBox bbox = layout->BBox(s.c_str());
 	    return ofRectangle(x + bbox.Lower().Xf(), y + bbox.Lower().Yf(), bbox.Upper().Xf(), bbox.Upper().Yf());
     }
-	return ofRectangle();
+	return ofRectangle(); 
 }
 
 ofRectangle ofxFTGLSimpleLayout::getStringBoundingBox(wstring s, float x, float y)

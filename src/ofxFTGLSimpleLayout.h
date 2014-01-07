@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "ftgl.h"
 #include "ofxFTGLFont.h"
+#include "ofxAssetManager.h"
 
 typedef	FTGL::TextAlignment ofxFTGLTextAlignment;
 
@@ -20,7 +21,7 @@ class ofxFTGLSimpleLayout
 
         void unload();
         bool loadFont(string filename, float fontsize = 10, float depth = 0, bool bUsePolygons = false);
-
+        bool loadCachedFont(string filename, float fontsize = 10, float depth = 0, bool bUsePolygons = false);
         ofRectangle getStringBoundingBox(wstring s, float x, float y);
         ofRectangle getStringBoundingBox(string s, float x, float y);
     
@@ -36,5 +37,6 @@ class ofxFTGLSimpleLayout
         void setAlignment(ofxFTGLTextAlignment alignment);
 
         FTSimpleLayout* layout;
+
 };
 
